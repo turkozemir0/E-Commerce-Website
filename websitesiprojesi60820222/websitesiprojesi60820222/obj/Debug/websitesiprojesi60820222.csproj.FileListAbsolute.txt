@@ -1,0 +1,2 @@
+D:\Kendi Website Projem\websitesiprojesi60820222\websitesiprojesi60820222\obj\Debug\websitesiprojesi60820222.csproj.AssemblyReference.cache
+D:\Kendi Website Projem\websitesiprojesi60820222\websitesiprojesi60820222\obj\Debug\websitesiprojesi60820222.csproj.CoreCompileInputs.cache

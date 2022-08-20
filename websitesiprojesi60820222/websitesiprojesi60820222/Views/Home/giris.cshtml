@@ -1,0 +1,65 @@
+﻿
+@{
+    ViewBag.Title = "giris";
+    Layout = "~/Views/Shared/default_layout.cshtml";
+}
+
+
+<!-- breadcrumb area start  -->
+<div id="sp-breadcrumb-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-12" id="sp-breadcrumb">
+                <div class="sp-column ">
+                    <div class="sp-module ">
+                        <div class="sp-module-content">
+                            <ul class="breadcrumb">
+                                <li class="active"><a href="login.html#"><span style="font-size:15px;">GİRİŞ YAPINIZ</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- breadcrumb area End  -->
+<!-- Loging area Start  -->
+<div class="loging-areas">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-2 col-lg-2"></div>
+            <div class="col-sm-12 col-md-8 col-lg-8">
+                <div class="login-users" style="background-color:#C7DDFF">
+                    <form action="@Url.Action("Giris","Home")" id="com-form-login" method="post">
+                        <fieldset class="userdata content">
+                            <ul class="form-list">
+                                <li>
+                                    <label class="required"><em>*</em>Email:</label>
+                                    <div class="input-box" id="com-form-login-username">
+                                        <input type="text" class="inputbox" name="Email" required>
+                                    </div>
+                                </li>
+                                <li>
+                                    <label class="required"><em>*</em>Şifre:</label>
+                                    <div class="input-box" id="com-form-login-password">
+                                        <input type="password" class="inputbox" id="modlgn-passwd" name="Password" required>
+                                    </div>
+                                </li>
+                                <li id="com-form-login-remember">
+                                    <input type="checkbox" value="yes" class="inputbox" name="remember" id="remember">
+                                    <label for="remember">Remember me</label>
+                                </li>
+                            </ul>
+                        </fieldset>
+                        <div class="buttons-set">
+                            <input type="submit" value="GİRİŞ YAP" class="vina-button" name="Submit">
+                            <a href="/Home/UyeOl"><button class="vina-button" title="Create an Account" type="button" style="margin-left:auto;"><span><span>KAYIT OL</span></span></button></a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Loging area area End  -->

@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="iakademi43gunceldbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="tbl_Categories">
+    <Key>
+      <PropertyRef Name="CategoryID" />
+    </Key>
+    <Property Name="CategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ParentID" Type="Int32" />
+    <Property Name="CategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" />
+    <NavigationProperty Name="tbl_Products" Relationship="Self.FK_tbl_Products_tbl_Categories" FromRole="tbl_Categories" ToRole="tbl_Products" />
+  </EntityType>
+  <EntityType Name="tbl_Messages">
+    <Key>
+      <PropertyRef Name="mesajID" />
+    </Key>
+    <Property Name="mesajID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="subject" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbl_Orders">
+    <Key>
+      <PropertyRef Name="orderID" />
+    </Key>
+    <Property Name="orderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="orderDate" Type="DateTime" Precision="3" />
+    <Property Name="orderGroupGUID" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="UserID" Type="Int32" />
+    <Property Name="ProductID" Type="Int32" />
+    <Property Name="quantity" Type="Int32" />
+    <NavigationProperty Name="tbl_Users" Relationship="Self.FK_tbl_Orders_tbl_Users" FromRole="tbl_Orders" ToRole="tbl_Users" />
+  </EntityType>
+  <EntityType Name="tbl_Products">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Price" Type="Decimal" Precision="11" Scale="2" />
+    <Property Name="CategoryID" Type="Int32" />
+    <Property Name="SupplierID" Type="Int32" />
+    <Property Name="Stok" Type="Int64" />
+    <Property Name="Discount" Type="Int32" />
+    <Property Name="statusID" Type="Int32" />
+    <Property Name="AddDate" Type="DateTime" Precision="0" />
+    <Property Name="Keywords" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Kdv" Type="Int32" />
+    <Property Name="OneCikanlar" Type="Int32" />
+    <Property Name="CokSatanlar" Type="Int32" />
+    <Property Name="BunaBakanlar" Type="Int32" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhotoPath" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" />
+    <NavigationProperty Name="tbl_Categories" Relationship="Self.FK_tbl_Products_tbl_Categories" FromRole="tbl_Products" ToRole="tbl_Categories" />
+    <NavigationProperty Name="tbl_Status" Relationship="Self.FK_tbl_Products_tbl_Status" FromRole="tbl_Products" ToRole="tbl_Status" />
+    <NavigationProperty Name="tbl_Suppliers" Relationship="Self.FK_tbl_Products_tbl_Suppliers" FromRole="tbl_Products" ToRole="tbl_Suppliers" />
+  </EntityType>
+  <EntityType Name="tbl_Settings">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="sayfadakiurunsayisi" Type="Int32" />
+    <Property Name="telefon" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="anasayfadakiurunsayisi" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tbl_Status">
+    <Key>
+      <PropertyRef Name="statusID" />
+    </Key>
+    <Property Name="statusID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="adi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tbl_Products" Relationship="Self.FK_tbl_Products_tbl_Status" FromRole="tbl_Status" ToRole="tbl_Products" />
+  </EntityType>
+  <EntityType Name="tbl_Suppliers">
+    <Key>
+      <PropertyRef Name="SupplierID" />
+    </Key>
+    <Property Name="SupplierID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BrandName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PhotoPath" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" />
+    <NavigationProperty Name="tbl_Products" Relationship="Self.FK_tbl_Products_tbl_Suppliers" FromRole="tbl_Suppliers" ToRole="tbl_Products" />
+  </EntityType>
+  <EntityType Name="tbl_Users">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NameSurname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Telephone" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="InvoicesAddres" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="IsAdmin" Type="Boolean" />
+    <Property Name="Active" Type="Boolean" />
+    <NavigationProperty Name="tbl_Orders" Relationship="Self.FK_tbl_Orders_tbl_Users" FromRole="tbl_Users" ToRole="tbl_Orders" />
+  </EntityType>
+  <EntityType Name="vw_urunler">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="Int32" Nullable="false" />
+    <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Price" Type="Decimal" Precision="11" Scale="2" />
+    <Property Name="Stok" Type="Int64" />
+    <Property Name="Discount" Type="Int32" />
+    <Property Name="statusID" Type="Int32" />
+    <Property Name="AddDate" Type="DateTime" Precision="0" />
+    <Property Name="Keywords" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Kdv" Type="Int32" />
+    <Property Name="OneCikanlar" Type="Int32" />
+    <Property Name="CokSatanlar" Type="Int32" />
+    <Property Name="BunaBakanlar" Type="Int32" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhotoPath" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="CategoryID" Type="Int32" />
+    <Property Name="CategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BrandName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SupplierID" Type="Int32" />
+    <Property Name="resimPath" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="adi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK_tbl_Products_tbl_Categories">
+    <End Role="tbl_Categories" Type="Self.tbl_Categories" Multiplicity="0..1" />
+    <End Role="tbl_Products" Type="Self.tbl_Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Categories">
+        <PropertyRef Name="CategoryID" />
+      </Principal>
+      <Dependent Role="tbl_Products">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Orders_tbl_Users">
+    <End Role="tbl_Users" Type="Self.tbl_Users" Multiplicity="0..1" />
+    <End Role="tbl_Orders" Type="Self.tbl_Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="tbl_Orders">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Products_tbl_Status">
+    <End Role="tbl_Status" Type="Self.tbl_Status" Multiplicity="0..1" />
+    <End Role="tbl_Products" Type="Self.tbl_Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Status">
+        <PropertyRef Name="statusID" />
+      </Principal>
+      <Dependent Role="tbl_Products">
+        <PropertyRef Name="statusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Products_tbl_Suppliers">
+    <End Role="tbl_Suppliers" Type="Self.tbl_Suppliers" Multiplicity="0..1" />
+    <End Role="tbl_Products" Type="Self.tbl_Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Suppliers">
+        <PropertyRef Name="SupplierID" />
+      </Principal>
+      <Dependent Role="tbl_Products">
+        <PropertyRef Name="SupplierID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="iakademi43gunceldbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="tbl_Categories" EntityType="Self.tbl_Categories" />
+    <EntitySet Name="tbl_Messages" EntityType="Self.tbl_Messages" />
+    <EntitySet Name="tbl_Orders" EntityType="Self.tbl_Orders" />
+    <EntitySet Name="tbl_Products" EntityType="Self.tbl_Products" />
+    <EntitySet Name="tbl_Settings" EntityType="Self.tbl_Settings" />
+    <EntitySet Name="tbl_Status" EntityType="Self.tbl_Status" />
+    <EntitySet Name="tbl_Suppliers" EntityType="Self.tbl_Suppliers" />
+    <EntitySet Name="tbl_Users" EntityType="Self.tbl_Users" />
+    <EntitySet Name="vw_urunler" EntityType="Self.vw_urunler" />
+    <AssociationSet Name="FK_tbl_Products_tbl_Categories" Association="Self.FK_tbl_Products_tbl_Categories">
+      <End Role="tbl_Categories" EntitySet="tbl_Categories" />
+      <End Role="tbl_Products" EntitySet="tbl_Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Orders_tbl_Users" Association="Self.FK_tbl_Orders_tbl_Users">
+      <End Role="tbl_Users" EntitySet="tbl_Users" />
+      <End Role="tbl_Orders" EntitySet="tbl_Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Products_tbl_Status" Association="Self.FK_tbl_Products_tbl_Status">
+      <End Role="tbl_Status" EntitySet="tbl_Status" />
+      <End Role="tbl_Products" EntitySet="tbl_Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Products_tbl_Suppliers" Association="Self.FK_tbl_Products_tbl_Suppliers">
+      <End Role="tbl_Suppliers" EntitySet="tbl_Suppliers" />
+      <End Role="tbl_Products" EntitySet="tbl_Products" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,181 @@
+﻿@using websitesiprojesi60820222.Models
+@{
+    var kategorilistesi = ViewBag.kategorilistesi;
+}
+
+
+<!-- main menu area start  -->
+<div class="main-menu-area ">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-10 col-sm-8 col-md-3 col-lg-3">
+                <div class="menu-cat-area">
+                    <h3 class="nk-module-title"><span>KATEGORİ</span></h3>
+                    <div class="nk-all-items">
+                        <div class="sp-module-content">
+                            <!-- treeview -->
+                            <div class="vina-treeview-virtuemart" id="vina-treeview-virtuemart93">
+                                <ul class="level0 treeview">
+                                    @foreach (var item in kategorilistesi as List<tbl_Categories>)
+                                    {
+                                        if (item.ParentID == 0)
+                                        {
+                                            <li>
+                                                <a title="@item.CategoryName" href="/Home/kategoriler/@item.CategoryID" class="baby">
+                                                    <span class="catTitle ">@item.CategoryName</span>
+                                                </a>
+                                                @foreach (var subitem in kategorilistesi)
+                                                {
+                                                    if (item.CategoryID == subitem.ParentID)
+                                                    {
+                                                        <ul class="sub-menu treeview">
+                                                            <li class="expandable">
+                                                                <a title="@subitem.CategoryName" href="/Home/kategoriler/@subitem.CategoryID" class="camera">
+                                                                    <span class="catTitle ">@subitem.CategoryName</span>
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    }
+                                                }
+                                            </li>
+                                        }
+
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-2 col-sm-3 col-md-9 col-lg-9">
+                <nav>
+                    <ul>
+                        <li class="active">
+                            <a href="@Url.Action("Index","Home")">ANASAYFA</a>
+                            <div class="sp-dropdown-inner">
+                                <ul class="sp-dropdown-items">
+                                    <li class="sp-menu-item"><a href="index.html">Home 1</a></li>
+                                    <li class="sp-menu-item"><a href="index-2.html">Home 2</a></li>
+                                    <li class="sp-menu-item"><a href="index-3.html">Home 3</a></li>
+                                    <li class="sp-menu-item"><a href="index-4.html">Home 4</a></li>
+                                    <li class="sp-menu-item"><a href="index-5.html">Home 5</a></li>
+                                    <li class="sp-menu-item"><a href="index-6.html">Home 6</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li><a href="@Url.Action("detayliarama","Home")">DETAYLI ARAMA</a></li>
+                        <li><a href="@Url.Action("giris","Home")">GİRİŞ</a></li>
+                        <li><a href="@Url.Action("cikis","Home")">ÇIKIŞ</a></li>
+                        <li>
+                            <a href="@Url.Action("Uyeol","Home")">ÜYE OL</a>
+                        </li>
+                        <li><a href="@Url.Action("hakkimizda","Home")">HAKKIMIZDA</a></li>
+                        <li><a href="@Url.Action("iletisim","Home")">İLETİŞİM</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- main menu area end  -->
+<!-- mobile-menu-area start -->
+<div class="mobile-menu-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="mobile-menu">
+                    <nav id="dropdown">
+                        <ul>
+                            <li>
+                                <a href="index.html">Home</a>
+                                <ul>
+                                    <li><a href="index.html">Home 1</a></li>
+                                    <li><a href="index-2.html">Home 2</a></li>
+                                    <li><a href="index-3.html">Home 3</a></li>
+                                    <li><a href="index-4.html">Home 4</a></li>
+                                    <li><a href="index-5.html">Home 5</a></li>
+                                    <li><a href="index-6.html">Home 6</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="about-us.html">About Us</a></li>
+                            <li><a href="blog.html">Blog</a></li>
+                            <li><a href="portfolio.html">Portfolio</a></li>
+                            <li>
+                                <a href="index.html#">Pages</a>
+                                <ul>
+                                    <li><a href="blog-post.html">blog post page</a></li>
+                                    <li><a href="cart.html">cart page</a></li>
+                                    <li><a href="checkout.html">checkout page</a></li>
+                                    <li><a href="login.html">login page</a></li>
+                                    <li><a href="shop.html">shop page</a></li>
+                                    <li><a href="single-product.html">single product page</a></li>
+                                    <li><a href="wishlist.html">wishlist</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="corporate.html">Corporate</a></li>
+                            <li><a href="contact.html">Contact Us</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- mobile-menu-area end -->
+<!-- search area start  -->
+<div class="nk-search-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-0 col-sm-0 col-md-3 col-lg-3">
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
+                <div class="nk-search">
+                    <div class="select-wrapper">
+                        <select class="select-nksearch">
+                            <option selected="selected">All Categories</option>
+                            <option>Baby</option>
+                            <option>Camera &amp; Camcorder</option>
+                            <option>-- Bags</option>
+                            <option>---- Blazers</option>
+                            <option>---- Bootees  Bags</option>
+                            <option>---- Coats &amp; Jackets</option>
+                            <option>Fashion &amp; Accessories</option>
+                            <option>-- Rings</option>
+                            <option>---- Diamond Bracelets</option>
+                            <option>Health &amp; Beauty</option>
+                            <option>-- Clothing</option>
+                            <option>-- Handbags</option>
+                            <option>---- Kids</option>
+                            <option>---- Sandals</option>
+                        </select>
+                    </div>
+                    <div class="search_input">
+                        <input type="text" placeholder="Type and hit enter" />
+                        <div class="search-button-wrapper">
+                            <button class="search-button" type="submit"><i class="fa fa-search"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- main menu area end  -->
+<script>
+    function getCurrentFileName() {
+        var pagePathName = window.location.pathname;
+
+        if (pagePathName == "/Home/Index") {
+            pagePathName = "";
+        }
+        return pagePathName.substring(pagePathName.lastIndexOf("/") + 1)
+    }
+
+    if (getCurrentFileName() == "") {
+        // alert("ANA SAYFA")
+        $(".nk-all-items").css("display", "block")
+    }
+    else {
+        // alert("ALT SAYFA")
+        $(".nk-all-items").css("display", "none")
+    }</script>

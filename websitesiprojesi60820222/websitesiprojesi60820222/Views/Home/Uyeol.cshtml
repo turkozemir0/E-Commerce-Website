@@ -1,0 +1,69 @@
+﻿
+@{
+    ViewBag.Title = "Uyeol";
+    Layout = "~/Views/Shared/default_layout.cshtml";
+}
+
+
+<!-- Checkout area start  -->
+<div class="checkout-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <div class="row">
+                    <div class="all-out-area">
+
+                        <div class="col-sm-12 col-md-3 col-lg-3"></div>
+
+                        <div class="col-sm-12 col-md-4 col-lg-6">
+                            <div class="proopc-st-address chek-full-info shipment " style="background-color: #F0E9D2">
+                                <h3 class="proopc-process-title" style="background-color:black;color:white;">ÜYELİK BİLGİLERİNİZİ GİRİNİZ</h3>
+                                <div>
+                                    <div class="inner-wrap">
+                                        <form class="last-pera" action="/Home/UyeOl" method="post">
+
+                                            <div class="customer-comment-group">
+                                                <label class="comment">Email</label>
+                                                <input type="text" name="Email">
+                                            </div>
+
+                                            <div class="customer-comment-group">
+                                                <label class="comment">Şifre</label>
+                                                <input type="text" name="Password">
+                                            </div>
+
+                                            <div class="customer-comment-group">
+                                                <label class="comment">Ad Soyad</label>
+                                                <input type="text" name="NameSurname">
+                                            </div>
+
+                                            <div class="customer-comment-group">
+                                                <label class="comment">Telefon</label>
+                                                <input type="text" name="Telephone">
+                                            </div>
+
+                                            <div class="customer-comment-group">
+                                                <label class="comment">Fatura Adresi</label>
+                                                <input type="text" name="InvoicesAddres">
+                                            </div>
+
+                                            <div class="customer-comment-group">
+                                                <img src="/Home/captcha" width="80" height="30" alt="Alternate Text" />
+                                                <input type="text" name="txtcaptcha" value="" placeholder="Güvenlik rakamını Giriniz" required maxlength="5" />
+                                            </div>
+
+                                            <div class="proopc-row proopc-checkout-box">
+                                                <button class="proopc-btn-info" type="submit">ÜYE OL</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- wishlist area end  -->

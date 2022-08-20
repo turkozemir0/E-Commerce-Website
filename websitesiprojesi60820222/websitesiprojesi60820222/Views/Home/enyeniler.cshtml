@@ -1,0 +1,94 @@
+﻿@using websitesiprojesi60820222.MVVM
+@model anasayfamodel
+@{
+    ViewBag.Title = "enyeniler";
+    Layout = "~/Views/Shared/default_layout.cshtml";
+}
+<!-- Single product area start  -->
+<div class="shop-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-9 col-md-9 col-lg-12">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+                        <div class="rp-area">
+                            <div class="all-p-title">
+                                <h3>EN YENİ ÜRÜNLER</h3>
+                            </div>
+                            <div class="singl-shop ">
+                                <div class="row">
+                                    <div id="urunler">
+                                        @foreach (var item in Model.yeniUrunler)
+                                        {
+                                            <!-- SP-SINGLE Product -->
+                                            <div class="col-sm-6 col-md-3 col-lg-3">
+                                                <div class="sp-single">
+                                                    <div class="sp-img-area">
+                                                        <img class="first-img" src="~/Content/resimler/@item.PhotoPath" alt="" style="height:250px;" />
+                                                        <img class="hover-img" src="/Content/resimler/@item.PhotoPath" alt="" style="height:250px;" />
+                                                        <div class="quick-view-detail">
+                                                            <a href="/Home/Detaylar/@item.ProductID">DETAY</a>
+                                                        </div>
+                                                        <div class="sp-label-pro sp-label-pro-new">YENİ</div>
+                                                    </div>
+                                                    <div class="sp-info-area">
+                                                        <h2 class="product-name"><a title="@item.ProductName" href="/Home/Detaylar/@item.ProductID">@item.ProductName</a></h2>
+                                                        <p class="all-prices">
+                                                            <span class="sp-price main-price">@item.Price</span>
+                                                        </p>
+                                                        <div class="sp-button">
+                                                            <div class="s-button">
+                                                                <a href="/Home/Sepet/@item.ProductID" data-toggle="tooltip" data-placement="top" title="SEPETE EKLE" class="black-tooltip add-to-cart all_src_icon"> <i class="fa fa-shopping-cart"></i> </a>
+                                                            </div>
+                                                            <div class="s-button">
+                                                                <a href="" data-toggle="tooltip" data-placement="top" title="" class="black-tooltip add-to-cart all_src_icon"></a>
+                                                            </div>
+                                                            <div class="s-button last-b ">
+                                                                <a href="/Home/Detaylar/@item.ProductID" data-toggle="tooltip" data-placement="top" title="DETAYLAR" class="black-tooltip add-to-cart all_src_icon"> <i class="fa fa-eye"></i> </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
+                                    </div>
+
+                                    <input type="hidden" id="sayfano" name="name" value="0" />
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="dahafazla">
+                        <div class="s-poraduct-botton">
+                            <input type="submit" value="DAHA FAZLA ÜRÜN" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Single product area End  -->
+<script>
+    $(document).on("click", "#dahafazla", function () {
+        var sayfano = parseInt($("#sayfano").val())
+        var sonrakisayfam = sayfano + 1;
+        $.ajax({
+            type: "GET",
+            url: "/Home/_partial_EnYeniler",
+            data: { sonrakisayfa : sonrakisayfam },
+            async: true,
+            processData: true,
+            cache: true,
+            success: function (result) {
+                $("#urunler").append(result)
+                $("#sayfano").val(sonrakisayfam)
+            }
+        })
+    })
+</script>
+
+
+
+

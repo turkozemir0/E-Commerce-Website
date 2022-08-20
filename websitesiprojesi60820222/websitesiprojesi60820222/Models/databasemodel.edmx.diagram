@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="db87d01c4d1c49429ec9b32d24459c0f" Name="Diagram1">
+        <EntityTypeShape EntityType="iakademi43gunceldbModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="iakademi43gunceldbModel.tbl_Categories" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="iakademi43gunceldbModel.tbl_Messages" Width="1.5" PointX="2.75" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="iakademi43gunceldbModel.tbl_Orders" Width="1.5" PointX="8" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="iakademi43gunceldbModel.tbl_Products" Width="1.5" PointX="3" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="iakademi43gunceldbModel.tbl_Settings" Width="1.5" PointX="7.75" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="iakademi43gunceldbModel.tbl_Status" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="iakademi43gunceldbModel.tbl_Suppliers" Width="1.5" PointX="0.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="iakademi43gunceldbModel.tbl_Users" Width="1.5" PointX="5.75" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="iakademi43gunceldbModel.vw_urunler" Width="1.5" PointX="4.75" PointY="9.125" IsExpanded="true" />
+        <AssociationConnector Association="iakademi43gunceldbModel.FK_tbl_Products_tbl_Categories" ManuallyRouted="false" />
+        <AssociationConnector Association="iakademi43gunceldbModel.FK_tbl_Orders_tbl_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="iakademi43gunceldbModel.FK_tbl_Products_tbl_Status" ManuallyRouted="false" />
+        <AssociationConnector Association="iakademi43gunceldbModel.FK_tbl_Products_tbl_Suppliers" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

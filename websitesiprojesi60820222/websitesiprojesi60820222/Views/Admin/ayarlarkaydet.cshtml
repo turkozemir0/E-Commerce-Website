@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewBag.Title = "ayarlarkaydet";
+    Layout = "~/Views/Shared/admin_layout.cshtml";
+}
+
+
+<br />
+<br />
+<!-- BEGIN SAMPLE FORM PORTLET-->
+<div class="portlet box purple">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="fa fa-gift"></i> AYARLAR GİRİŞ FORMU
+        </div>
+        <div class="tools">
+            <a href="" class="collapse">
+            </a>
+            <a href="#portlet-config" data-toggle="modal" class="config">
+            </a>
+            <a href="" class="reload">
+            </a>
+            <a href="" class="remove">
+            </a>
+        </div>
+    </div>
+    <div class="portlet-body form">
+        <form class="form-horizontal" role="form" action="/Admin/AyarlarKaydet" method="post">
+            <div class="form-body">
+                <div class="form-group">
+                    <label class="col-md-3 control-label">ALT SAYFADAKİ ÜRÜN SAYISI</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control input-lg" name="sayfadakiurunsayisi" maxlength="5">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">TELEFON</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control input-lg" name="telefon" maxlength="11">
+                    </div>
+                </div>
+                <div class="form-actions right1">
+                    <button type="submit" class="btn green">KAYDET</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- END SAMPLE FORM PORTLET-->
+ XX

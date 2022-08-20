@@ -1,0 +1,616 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="iakademi43gunceldbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="tbl_Categories">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ParentID" Type="int" />
+          <Property Name="CategoryName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Active" Type="bit" />
+        </EntityType>
+        <EntityType Name="tbl_Messages">
+          <Key>
+            <PropertyRef Name="mesajID" />
+          </Key>
+          <Property Name="mesajID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" />
+          <Property Name="subject" Type="nvarchar" MaxLength="30" />
+          <Property Name="message" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="tbl_Orders">
+          <Key>
+            <PropertyRef Name="orderID" />
+          </Key>
+          <Property Name="orderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="orderDate" Type="datetime" />
+          <Property Name="orderGroupGUID" Type="nvarchar" MaxLength="30" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="ProductID" Type="int" />
+          <Property Name="quantity" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_Products">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Price" Type="decimal" Precision="11" Scale="2" />
+          <Property Name="CategoryID" Type="int" />
+          <Property Name="SupplierID" Type="int" />
+          <Property Name="Stok" Type="bigint" />
+          <Property Name="Discount" Type="int" />
+          <Property Name="statusID" Type="int" />
+          <Property Name="AddDate" Type="date" />
+          <Property Name="Keywords" Type="nvarchar(max)" />
+          <Property Name="Kdv" Type="int" />
+          <Property Name="OneCikanlar" Type="int" />
+          <Property Name="CokSatanlar" Type="int" />
+          <Property Name="BunaBakanlar" Type="int" />
+          <Property Name="Notes" Type="nvarchar(max)" />
+          <Property Name="PhotoPath" Type="nvarchar" MaxLength="50" />
+          <Property Name="Active" Type="bit" />
+        </EntityType>
+        <EntityType Name="tbl_Settings">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sayfadakiurunsayisi" Type="int" />
+          <Property Name="telefon" Type="nvarchar" MaxLength="50" />
+          <Property Name="anasayfadakiurunsayisi" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_Status">
+          <Key>
+            <PropertyRef Name="statusID" />
+          </Key>
+          <Property Name="statusID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="adi" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbl_Suppliers">
+          <Key>
+            <PropertyRef Name="SupplierID" />
+          </Key>
+          <Property Name="SupplierID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BrandName" Type="nvarchar" MaxLength="50" />
+          <Property Name="PhotoPath" Type="nvarchar" MaxLength="50" />
+          <Property Name="Active" Type="bit" />
+        </EntityType>
+        <EntityType Name="tbl_Users">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="NameSurname" Type="nvarchar" MaxLength="50" />
+          <Property Name="Telephone" Type="nvarchar" MaxLength="15" />
+          <Property Name="InvoicesAddres" Type="nvarchar" MaxLength="150" />
+          <Property Name="IsAdmin" Type="bit" />
+          <Property Name="Active" Type="bit" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'iakademi43gunceldb.dbo.vw_urunler' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vw_urunler">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="int" Nullable="false" />
+          <Property Name="ProductName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Price" Type="decimal" Precision="11" Scale="2" />
+          <Property Name="Stok" Type="bigint" />
+          <Property Name="Discount" Type="int" />
+          <Property Name="statusID" Type="int" />
+          <Property Name="AddDate" Type="date" />
+          <Property Name="Keywords" Type="nvarchar(max)" />
+          <Property Name="Kdv" Type="int" />
+          <Property Name="OneCikanlar" Type="int" />
+          <Property Name="CokSatanlar" Type="int" />
+          <Property Name="BunaBakanlar" Type="int" />
+          <Property Name="Notes" Type="nvarchar(max)" />
+          <Property Name="PhotoPath" Type="nvarchar" MaxLength="50" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="CategoryID" Type="int" />
+          <Property Name="CategoryName" Type="nvarchar" MaxLength="50" />
+          <Property Name="BrandName" Type="nvarchar" MaxLength="50" />
+          <Property Name="SupplierID" Type="int" />
+          <Property Name="resimPath" Type="nvarchar" MaxLength="50" />
+          <Property Name="adi" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_tbl_Orders_tbl_Users">
+          <End Role="tbl_Users" Type="Self.tbl_Users" Multiplicity="0..1" />
+          <End Role="tbl_Orders" Type="Self.tbl_Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="tbl_Orders">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Products_tbl_Categories">
+          <End Role="tbl_Categories" Type="Self.tbl_Categories" Multiplicity="0..1" />
+          <End Role="tbl_Products" Type="Self.tbl_Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Categories">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="tbl_Products">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Products_tbl_Status">
+          <End Role="tbl_Status" Type="Self.tbl_Status" Multiplicity="0..1" />
+          <End Role="tbl_Products" Type="Self.tbl_Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Status">
+              <PropertyRef Name="statusID" />
+            </Principal>
+            <Dependent Role="tbl_Products">
+              <PropertyRef Name="statusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Products_tbl_Suppliers">
+          <End Role="tbl_Suppliers" Type="Self.tbl_Suppliers" Multiplicity="0..1" />
+          <End Role="tbl_Products" Type="Self.tbl_Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Suppliers">
+              <PropertyRef Name="SupplierID" />
+            </Principal>
+            <Dependent Role="tbl_Products">
+              <PropertyRef Name="SupplierID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="iakademi43gunceldbModelStoreContainer">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Categories" EntityType="Self.tbl_Categories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Messages" EntityType="Self.tbl_Messages" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Orders" EntityType="Self.tbl_Orders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Products" EntityType="Self.tbl_Products" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Settings" EntityType="Self.tbl_Settings" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Status" EntityType="Self.tbl_Status" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Suppliers" EntityType="Self.tbl_Suppliers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Users" EntityType="Self.tbl_Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="vw_urunler" EntityType="Self.vw_urunler" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_urunler].[ProductID] AS [ProductID], 
+    [vw_urunler].[ProductName] AS [ProductName], 
+    [vw_urunler].[Price] AS [Price], 
+    [vw_urunler].[Stok] AS [Stok], 
+    [vw_urunler].[Discount] AS [Discount], 
+    [vw_urunler].[statusID] AS [statusID], 
+    [vw_urunler].[AddDate] AS [AddDate], 
+    [vw_urunler].[Keywords] AS [Keywords], 
+    [vw_urunler].[Kdv] AS [Kdv], 
+    [vw_urunler].[OneCikanlar] AS [OneCikanlar], 
+    [vw_urunler].[CokSatanlar] AS [CokSatanlar], 
+    [vw_urunler].[BunaBakanlar] AS [BunaBakanlar], 
+    [vw_urunler].[Notes] AS [Notes], 
+    [vw_urunler].[PhotoPath] AS [PhotoPath], 
+    [vw_urunler].[Active] AS [Active], 
+    [vw_urunler].[CategoryID] AS [CategoryID], 
+    [vw_urunler].[CategoryName] AS [CategoryName], 
+    [vw_urunler].[BrandName] AS [BrandName], 
+    [vw_urunler].[SupplierID] AS [SupplierID], 
+    [vw_urunler].[resimPath] AS [resimPath], 
+    [vw_urunler].[adi] AS [adi]
+    FROM [dbo].[vw_urunler] AS [vw_urunler]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_tbl_Orders_tbl_Users" Association="Self.FK_tbl_Orders_tbl_Users">
+            <End Role="tbl_Users" EntitySet="tbl_Users" />
+            <End Role="tbl_Orders" EntitySet="tbl_Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Products_tbl_Categories" Association="Self.FK_tbl_Products_tbl_Categories">
+            <End Role="tbl_Categories" EntitySet="tbl_Categories" />
+            <End Role="tbl_Products" EntitySet="tbl_Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Products_tbl_Status" Association="Self.FK_tbl_Products_tbl_Status">
+            <End Role="tbl_Status" EntitySet="tbl_Status" />
+            <End Role="tbl_Products" EntitySet="tbl_Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Products_tbl_Suppliers" Association="Self.FK_tbl_Products_tbl_Suppliers">
+            <End Role="tbl_Suppliers" EntitySet="tbl_Suppliers" />
+            <End Role="tbl_Products" EntitySet="tbl_Products" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="iakademi43gunceldbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="tbl_Categories">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ParentID" Type="Int32" />
+          <Property Name="CategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Active" Type="Boolean" />
+          <NavigationProperty Name="tbl_Products" Relationship="Self.FK_tbl_Products_tbl_Categories" FromRole="tbl_Categories" ToRole="tbl_Products" />
+        </EntityType>
+        <EntityType Name="tbl_Messages">
+          <Key>
+            <PropertyRef Name="mesajID" />
+          </Key>
+          <Property Name="mesajID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="subject" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbl_Orders">
+          <Key>
+            <PropertyRef Name="orderID" />
+          </Key>
+          <Property Name="orderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="orderDate" Type="DateTime" Precision="3" />
+          <Property Name="orderGroupGUID" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="ProductID" Type="Int32" />
+          <Property Name="quantity" Type="Int32" />
+          <NavigationProperty Name="tbl_Users" Relationship="Self.FK_tbl_Orders_tbl_Users" FromRole="tbl_Orders" ToRole="tbl_Users" />
+        </EntityType>
+        <EntityType Name="tbl_Products">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Decimal" Precision="11" Scale="2" />
+          <Property Name="CategoryID" Type="Int32" />
+          <Property Name="SupplierID" Type="Int32" />
+          <Property Name="Stok" Type="Int64" />
+          <Property Name="Discount" Type="Int32" />
+          <Property Name="statusID" Type="Int32" />
+          <Property Name="AddDate" Type="DateTime" Precision="0" />
+          <Property Name="Keywords" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Kdv" Type="Int32" />
+          <Property Name="OneCikanlar" Type="Int32" />
+          <Property Name="CokSatanlar" Type="Int32" />
+          <Property Name="BunaBakanlar" Type="Int32" />
+          <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhotoPath" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Active" Type="Boolean" />
+          <NavigationProperty Name="tbl_Categories" Relationship="Self.FK_tbl_Products_tbl_Categories" FromRole="tbl_Products" ToRole="tbl_Categories" />
+          <NavigationProperty Name="tbl_Status" Relationship="Self.FK_tbl_Products_tbl_Status" FromRole="tbl_Products" ToRole="tbl_Status" />
+          <NavigationProperty Name="tbl_Suppliers" Relationship="Self.FK_tbl_Products_tbl_Suppliers" FromRole="tbl_Products" ToRole="tbl_Suppliers" />
+        </EntityType>
+        <EntityType Name="tbl_Settings">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sayfadakiurunsayisi" Type="Int32" />
+          <Property Name="telefon" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="anasayfadakiurunsayisi" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tbl_Status">
+          <Key>
+            <PropertyRef Name="statusID" />
+          </Key>
+          <Property Name="statusID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="adi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tbl_Products" Relationship="Self.FK_tbl_Products_tbl_Status" FromRole="tbl_Status" ToRole="tbl_Products" />
+        </EntityType>
+        <EntityType Name="tbl_Suppliers">
+          <Key>
+            <PropertyRef Name="SupplierID" />
+          </Key>
+          <Property Name="SupplierID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BrandName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PhotoPath" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Active" Type="Boolean" />
+          <NavigationProperty Name="tbl_Products" Relationship="Self.FK_tbl_Products_tbl_Suppliers" FromRole="tbl_Suppliers" ToRole="tbl_Products" />
+        </EntityType>
+        <EntityType Name="tbl_Users">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NameSurname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Telephone" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="InvoicesAddres" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="IsAdmin" Type="Boolean" />
+          <Property Name="Active" Type="Boolean" />
+          <NavigationProperty Name="tbl_Orders" Relationship="Self.FK_tbl_Orders_tbl_Users" FromRole="tbl_Users" ToRole="tbl_Orders" />
+        </EntityType>
+        <EntityType Name="vw_urunler">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="Int32" Nullable="false" />
+          <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Decimal" Precision="11" Scale="2" />
+          <Property Name="Stok" Type="Int64" />
+          <Property Name="Discount" Type="Int32" />
+          <Property Name="statusID" Type="Int32" />
+          <Property Name="AddDate" Type="DateTime" Precision="0" />
+          <Property Name="Keywords" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Kdv" Type="Int32" />
+          <Property Name="OneCikanlar" Type="Int32" />
+          <Property Name="CokSatanlar" Type="Int32" />
+          <Property Name="BunaBakanlar" Type="Int32" />
+          <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhotoPath" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="CategoryID" Type="Int32" />
+          <Property Name="CategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BrandName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SupplierID" Type="Int32" />
+          <Property Name="resimPath" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="adi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_tbl_Products_tbl_Categories">
+          <End Role="tbl_Categories" Type="Self.tbl_Categories" Multiplicity="0..1" />
+          <End Role="tbl_Products" Type="Self.tbl_Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Categories">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="tbl_Products">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Orders_tbl_Users">
+          <End Role="tbl_Users" Type="Self.tbl_Users" Multiplicity="0..1" />
+          <End Role="tbl_Orders" Type="Self.tbl_Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="tbl_Orders">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Products_tbl_Status">
+          <End Role="tbl_Status" Type="Self.tbl_Status" Multiplicity="0..1" />
+          <End Role="tbl_Products" Type="Self.tbl_Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Status">
+              <PropertyRef Name="statusID" />
+            </Principal>
+            <Dependent Role="tbl_Products">
+              <PropertyRef Name="statusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Products_tbl_Suppliers">
+          <End Role="tbl_Suppliers" Type="Self.tbl_Suppliers" Multiplicity="0..1" />
+          <End Role="tbl_Products" Type="Self.tbl_Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Suppliers">
+              <PropertyRef Name="SupplierID" />
+            </Principal>
+            <Dependent Role="tbl_Products">
+              <PropertyRef Name="SupplierID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="iakademi43gunceldbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="tbl_Categories" EntityType="Self.tbl_Categories" />
+          <EntitySet Name="tbl_Messages" EntityType="Self.tbl_Messages" />
+          <EntitySet Name="tbl_Orders" EntityType="Self.tbl_Orders" />
+          <EntitySet Name="tbl_Products" EntityType="Self.tbl_Products" />
+          <EntitySet Name="tbl_Settings" EntityType="Self.tbl_Settings" />
+          <EntitySet Name="tbl_Status" EntityType="Self.tbl_Status" />
+          <EntitySet Name="tbl_Suppliers" EntityType="Self.tbl_Suppliers" />
+          <EntitySet Name="tbl_Users" EntityType="Self.tbl_Users" />
+          <EntitySet Name="vw_urunler" EntityType="Self.vw_urunler" />
+          <AssociationSet Name="FK_tbl_Products_tbl_Categories" Association="Self.FK_tbl_Products_tbl_Categories">
+            <End Role="tbl_Categories" EntitySet="tbl_Categories" />
+            <End Role="tbl_Products" EntitySet="tbl_Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Orders_tbl_Users" Association="Self.FK_tbl_Orders_tbl_Users">
+            <End Role="tbl_Users" EntitySet="tbl_Users" />
+            <End Role="tbl_Orders" EntitySet="tbl_Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Products_tbl_Status" Association="Self.FK_tbl_Products_tbl_Status">
+            <End Role="tbl_Status" EntitySet="tbl_Status" />
+            <End Role="tbl_Products" EntitySet="tbl_Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Products_tbl_Suppliers" Association="Self.FK_tbl_Products_tbl_Suppliers">
+            <End Role="tbl_Suppliers" EntitySet="tbl_Suppliers" />
+            <End Role="tbl_Products" EntitySet="tbl_Products" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="iakademi43gunceldbModelStoreContainer" CdmEntityContainer="iakademi43gunceldbEntities">
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="iakademi43gunceldbModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Categories">
+            <EntityTypeMapping TypeName="iakademi43gunceldbModel.tbl_Categories">
+              <MappingFragment StoreEntitySet="tbl_Categories">
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Messages">
+            <EntityTypeMapping TypeName="iakademi43gunceldbModel.tbl_Messages">
+              <MappingFragment StoreEntitySet="tbl_Messages">
+                <ScalarProperty Name="mesajID" ColumnName="mesajID" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="subject" ColumnName="subject" />
+                <ScalarProperty Name="message" ColumnName="message" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Orders">
+            <EntityTypeMapping TypeName="iakademi43gunceldbModel.tbl_Orders">
+              <MappingFragment StoreEntitySet="tbl_Orders">
+                <ScalarProperty Name="orderID" ColumnName="orderID" />
+                <ScalarProperty Name="orderDate" ColumnName="orderDate" />
+                <ScalarProperty Name="orderGroupGUID" ColumnName="orderGroupGUID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Products">
+            <EntityTypeMapping TypeName="iakademi43gunceldbModel.tbl_Products">
+              <MappingFragment StoreEntitySet="tbl_Products">
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
+                <ScalarProperty Name="Stok" ColumnName="Stok" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="statusID" ColumnName="statusID" />
+                <ScalarProperty Name="AddDate" ColumnName="AddDate" />
+                <ScalarProperty Name="Keywords" ColumnName="Keywords" />
+                <ScalarProperty Name="Kdv" ColumnName="Kdv" />
+                <ScalarProperty Name="OneCikanlar" ColumnName="OneCikanlar" />
+                <ScalarProperty Name="CokSatanlar" ColumnName="CokSatanlar" />
+                <ScalarProperty Name="BunaBakanlar" ColumnName="BunaBakanlar" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="PhotoPath" ColumnName="PhotoPath" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Settings">
+            <EntityTypeMapping TypeName="iakademi43gunceldbModel.tbl_Settings">
+              <MappingFragment StoreEntitySet="tbl_Settings">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="sayfadakiurunsayisi" ColumnName="sayfadakiurunsayisi" />
+                <ScalarProperty Name="telefon" ColumnName="telefon" />
+                <ScalarProperty Name="anasayfadakiurunsayisi" ColumnName="anasayfadakiurunsayisi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Status">
+            <EntityTypeMapping TypeName="iakademi43gunceldbModel.tbl_Status">
+              <MappingFragment StoreEntitySet="tbl_Status">
+                <ScalarProperty Name="statusID" ColumnName="statusID" />
+                <ScalarProperty Name="adi" ColumnName="adi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Suppliers">
+            <EntityTypeMapping TypeName="iakademi43gunceldbModel.tbl_Suppliers">
+              <MappingFragment StoreEntitySet="tbl_Suppliers">
+                <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
+                <ScalarProperty Name="BrandName" ColumnName="BrandName" />
+                <ScalarProperty Name="PhotoPath" ColumnName="PhotoPath" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Users">
+            <EntityTypeMapping TypeName="iakademi43gunceldbModel.tbl_Users">
+              <MappingFragment StoreEntitySet="tbl_Users">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="NameSurname" ColumnName="NameSurname" />
+                <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+                <ScalarProperty Name="InvoicesAddres" ColumnName="InvoicesAddres" />
+                <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_urunler">
+            <EntityTypeMapping TypeName="iakademi43gunceldbModel.vw_urunler">
+              <MappingFragment StoreEntitySet="vw_urunler">
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Stok" ColumnName="Stok" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="statusID" ColumnName="statusID" />
+                <ScalarProperty Name="AddDate" ColumnName="AddDate" />
+                <ScalarProperty Name="Keywords" ColumnName="Keywords" />
+                <ScalarProperty Name="Kdv" ColumnName="Kdv" />
+                <ScalarProperty Name="OneCikanlar" ColumnName="OneCikanlar" />
+                <ScalarProperty Name="CokSatanlar" ColumnName="CokSatanlar" />
+                <ScalarProperty Name="BunaBakanlar" ColumnName="BunaBakanlar" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="PhotoPath" ColumnName="PhotoPath" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="BrandName" ColumnName="BrandName" />
+                <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
+                <ScalarProperty Name="resimPath" ColumnName="resimPath" />
+                <ScalarProperty Name="adi" ColumnName="adi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

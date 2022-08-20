@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="iakademi43gunceldbModelStoreContainer" CdmEntityContainer="iakademi43gunceldbEntities">
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="iakademi43gunceldbModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Categories">
+      <EntityTypeMapping TypeName="iakademi43gunceldbModel.tbl_Categories">
+        <MappingFragment StoreEntitySet="tbl_Categories">
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Messages">
+      <EntityTypeMapping TypeName="iakademi43gunceldbModel.tbl_Messages">
+        <MappingFragment StoreEntitySet="tbl_Messages">
+          <ScalarProperty Name="mesajID" ColumnName="mesajID" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="subject" ColumnName="subject" />
+          <ScalarProperty Name="message" ColumnName="message" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Orders">
+      <EntityTypeMapping TypeName="iakademi43gunceldbModel.tbl_Orders">
+        <MappingFragment StoreEntitySet="tbl_Orders">
+          <ScalarProperty Name="orderID" ColumnName="orderID" />
+          <ScalarProperty Name="orderDate" ColumnName="orderDate" />
+          <ScalarProperty Name="orderGroupGUID" ColumnName="orderGroupGUID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Products">
+      <EntityTypeMapping TypeName="iakademi43gunceldbModel.tbl_Products">
+        <MappingFragment StoreEntitySet="tbl_Products">
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
+          <ScalarProperty Name="Stok" ColumnName="Stok" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="statusID" ColumnName="statusID" />
+          <ScalarProperty Name="AddDate" ColumnName="AddDate" />
+          <ScalarProperty Name="Keywords" ColumnName="Keywords" />
+          <ScalarProperty Name="Kdv" ColumnName="Kdv" />
+          <ScalarProperty Name="OneCikanlar" ColumnName="OneCikanlar" />
+          <ScalarProperty Name="CokSatanlar" ColumnName="CokSatanlar" />
+          <ScalarProperty Name="BunaBakanlar" ColumnName="BunaBakanlar" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="PhotoPath" ColumnName="PhotoPath" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Settings">
+      <EntityTypeMapping TypeName="iakademi43gunceldbModel.tbl_Settings">
+        <MappingFragment StoreEntitySet="tbl_Settings">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="sayfadakiurunsayisi" ColumnName="sayfadakiurunsayisi" />
+          <ScalarProperty Name="telefon" ColumnName="telefon" />
+          <ScalarProperty Name="anasayfadakiurunsayisi" ColumnName="anasayfadakiurunsayisi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Status">
+      <EntityTypeMapping TypeName="iakademi43gunceldbModel.tbl_Status">
+        <MappingFragment StoreEntitySet="tbl_Status">
+          <ScalarProperty Name="statusID" ColumnName="statusID" />
+          <ScalarProperty Name="adi" ColumnName="adi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Suppliers">
+      <EntityTypeMapping TypeName="iakademi43gunceldbModel.tbl_Suppliers">
+        <MappingFragment StoreEntitySet="tbl_Suppliers">
+          <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
+          <ScalarProperty Name="BrandName" ColumnName="BrandName" />
+          <ScalarProperty Name="PhotoPath" ColumnName="PhotoPath" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Users">
+      <EntityTypeMapping TypeName="iakademi43gunceldbModel.tbl_Users">
+        <MappingFragment StoreEntitySet="tbl_Users">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="NameSurname" ColumnName="NameSurname" />
+          <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+          <ScalarProperty Name="InvoicesAddres" ColumnName="InvoicesAddres" />
+          <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_urunler">
+      <EntityTypeMapping TypeName="iakademi43gunceldbModel.vw_urunler">
+        <MappingFragment StoreEntitySet="vw_urunler">
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Stok" ColumnName="Stok" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="statusID" ColumnName="statusID" />
+          <ScalarProperty Name="AddDate" ColumnName="AddDate" />
+          <ScalarProperty Name="Keywords" ColumnName="Keywords" />
+          <ScalarProperty Name="Kdv" ColumnName="Kdv" />
+          <ScalarProperty Name="OneCikanlar" ColumnName="OneCikanlar" />
+          <ScalarProperty Name="CokSatanlar" ColumnName="CokSatanlar" />
+          <ScalarProperty Name="BunaBakanlar" ColumnName="BunaBakanlar" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="PhotoPath" ColumnName="PhotoPath" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="BrandName" ColumnName="BrandName" />
+          <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
+          <ScalarProperty Name="resimPath" ColumnName="resimPath" />
+          <ScalarProperty Name="adi" ColumnName="adi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
